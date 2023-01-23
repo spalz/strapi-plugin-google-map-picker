@@ -15,10 +15,10 @@
 
 ```javascript
 # yarn
-yarn add @spalz/strapi-plugin-google-map-picker
+yarn add strapi-plugin-google-map-picker
 
 # npm
-npm i @spalz/strapi-plugin-google-map-picker
+npm i strapi-plugin-google-map-picker
 ```
 
 ## 🔧 Configuration
