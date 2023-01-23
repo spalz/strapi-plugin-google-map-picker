@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-google-map-picker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Strapi maintained Custom Fields",
   "strapi": {
     "name": "google-map-picker",
