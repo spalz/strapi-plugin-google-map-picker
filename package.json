@@ -13,8 +13,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/strapi/strapi.git",
-    "directory": "packages/plugins/color-picker"
+    "url": "https://github.com/spalz/strapi-plugin-google-map-picker",
+    "directory": "spalz/strapi-plugin-google-map-picker"
   },
   "license": "SEE LICENSE IN LICENSE",
   "author": {
