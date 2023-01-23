@@ -1,0 +1,40 @@
+{
+  "name": "strapi-plugin-google-map-picker",
+  "version": "1.0.0",
+  "description": "Strapi maintained Custom Fields",
+  "strapi": {
+    "name": "google-map-picker",
+    "description": "Map picker custom field",
+    "kind": "plugin",
+    "displayName": "MapPicker"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strapi/strapi.git",
+    "directory": "packages/plugins/color-picker"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Yuriy Repin",
+    "email": "spals@protonmail.com",
+    "url": "https://dangercactus.io"
+  },
+  "maintainers": [
+    {
+      "name": "Yuriy Repin",
+      "email": "spals@protonmail.com",
+      "url": "https://dangercactus.io"
+    }
+  ],
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "^2.13.1",
+    "immer": "^9.0.18"
+  }
+}

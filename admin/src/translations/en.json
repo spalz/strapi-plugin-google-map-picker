@@ -1,0 +1,13 @@
+{
+  "google-map-picker.label": "Place",
+  "google-map-picker.description": "Select any place on google map",
+  "google-map-picker.search": "Search",
+  "google-map-picker.not-selected": "Not selected",
+  "google-map-picker.settings": "Settings",
+  "google-map-picker.options.advanced.regex": "RegExp pattern",
+  "google-map-picker.options.advanced.regex.description": "Provide a regular expression to validate the coordinates",
+  "google-map-picker.options.advanced.requiredField": "Required field",
+  "google-map-picker.options.advanced.requiredField.description": "You won't be able to create an entry if this field is empty",
+  "google-map-picker.toggle.aria-label": "Place picker toggle",
+  "google-map-picker.input.aria-label": "Place picker input"
+}

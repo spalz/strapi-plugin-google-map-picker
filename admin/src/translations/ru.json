@@ -1,0 +1,13 @@
+{
+  "google-map-picker.label": "Точка на карте",
+  "google-map-picker.description": "Выбор точки на карте",
+  "google-map-picker.search": "Поиск",
+  "google-map-picker.not-selected": "Не выбрано",
+  "google-map-picker.settings": "Настройки",
+  "google-map-picker.options.advanced.regex": "Шаблон регулярного выражения",
+  "google-map-picker.options.advanced.regex.description": "Добавьте регулярное выражение для проверки координат",
+  "google-map-picker.options.advanced.requiredField": "Обязательное поле",
+  "google-map-picker.options.advanced.requiredField.description": "Вы не сможете создать запись, если это поле пусто",
+  "google-map-picker.toggle.aria-label": "Переключатель выбора места",
+  "google-map-picker.input.aria-label": "Поле выбора места"
+}
