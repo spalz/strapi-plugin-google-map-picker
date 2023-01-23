@@ -4,7 +4,7 @@
   "description": "Strapi maintained Custom Fields",
   "strapi": {
     "name": "google-map-picker",
-    "description": "Map picker custom field",
+    "description": "Google map picker custom field",
     "kind": "plugin",
     "displayName": "MapPicker"
   },
@@ -13,8 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/spalz/strapi-plugin-google-map-picker",
-    "directory": "spalz/strapi-plugin-google-map-picker"
+    "url": "https://github.com/spalz/strapi-plugin-google-map-picker.git"
   },
   "license": "SEE LICENSE IN LICENSE",
   "author": {
