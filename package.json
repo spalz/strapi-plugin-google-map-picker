@@ -20,7 +20,7 @@
         "type": "git",
         "url": "https://github.com/spalz/strapi-plugin-google-map-picker.git"
     },
-    "license": "SEE LICENSE IN LICENSE",
+    "license": "MIT",
     "author": {
         "name": "Yuriy Repin",
         "email": "spals@protonmail.com",
