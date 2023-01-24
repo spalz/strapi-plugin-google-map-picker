@@ -68,3 +68,4 @@ $RECYCLE.BIN/
 
 node_modules
 .node_history
+dist
