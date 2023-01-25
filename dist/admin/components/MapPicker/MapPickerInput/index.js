@@ -39,7 +39,8 @@ const mapContainerStyle = {
     width: "100%",
 };
 const MapPickerInput = ({ attribute, description = null, error = null, intlLabel, labelAction = null, name, onChange, required = false, value, config: { apiKey, default_center, favorites_places }, }) => {
-    const { isLoaded } = (0, api_1.useLoadScript)({
+    var _a;
+    const { isLoaded, loadError } = (0, api_1.useLoadScript)({
         googleMapsApiKey: apiKey,
         libraries: LIBRARIES,
     });
@@ -135,6 +136,19 @@ const MapPickerInput = ({ attribute, description = null, error = null, intlLabel
             });
         }
     };
+    // @ts-ignore
+    if (((_a = loadError === null || loadError === void 0 ? void 0 : loadError.target) === null || _a === void 0 ? void 0 : _a.id) === "script-loader") {
+        return (react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement(design_system_1.FieldLabel, null, name),
+            react_1.default.createElement(design_system_1.Box, { paddingTop: "1" },
+                react_1.default.createElement(design_system_1.Status, { variant: "warning", size: "S", showBullet: false },
+                    react_1.default.createElement(design_system_1.Typography, null,
+                        react_1.default.createElement(design_system_1.Typography, null,
+                            "Possibly missing: ",
+                            react_1.default.createElement(design_system_1.Typography, { fontWeight: "bold" }, "middlewares"))),
+                    react_1.default.createElement("br", null),
+                    react_1.default.createElement(design_system_1.Link, { href: "https://github.com/spalz/strapi-plugin-google-map-picker", isExternal: true }, "Installation Instructions (GitHub)")))));
+    }
     if (!isLoaded) {
         return react_1.default.createElement(SLoading, { style: mapContainerStyle }, "Loading...");
     }
@@ -151,7 +165,7 @@ const MapPickerInput = ({ attribute, description = null, error = null, intlLabel
                         react_1.default.createElement(design_system_1.Button, { size: "S", variant: "tertiary" }, item.title)));
                 }))),
                 react_1.default.createElement(SGoogleMap, null,
-                    react_1.default.createElement(api_1.GoogleMap, { id: "map", mapContainerStyle: mapContainerStyle, zoom: 10, center: center, onClick: (MapMouseEvent) => onMarkerDraggable(MapMouseEvent), onLoad: () => onLoad(), options: {
+                    react_1.default.createElement(api_1.GoogleMap, { id: name, mapContainerStyle: mapContainerStyle, zoom: 10, center: center, onClick: (MapMouseEvent) => onMarkerDraggable(MapMouseEvent), onLoad: () => onLoad(), options: {
                             zoomControl: true,
                             maxZoom: 18,
                         } },
@@ -166,7 +180,7 @@ const MapPickerInput = ({ attribute, description = null, error = null, intlLabel
 };
 const SLoading = styled_components_1.default.div `
     display: flex;
-    background-color: #ccc;
+    background-color: ${({ theme }) => theme.colors.neutral300};
     align-items: center;
     justify-content: center;
 `;

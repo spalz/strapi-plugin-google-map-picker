@@ -1,13 +1,44 @@
 export interface MapPickerInputProps {
-    intlLabel: any;
+    attribute: {
+        pluginOptions: {
+            i18n: {
+                localized: boolean;
+            };
+        };
+        type: string;
+        customField: string;
+        required: boolean;
+    };
+    intlLabel: {
+        id: string;
+        defaultMessage: string;
+    };
+    labelAction?: {
+        key: any | null;
+        ref: any | null;
+        props: {
+            title: {
+                id: string;
+                defaultMessage: string;
+            };
+            icon: {
+                key: any | null;
+                ref: any | null;
+                props: {
+                    "aria-hidden": boolean;
+                };
+                _owner: any | null;
+            };
+        };
+        _owner: any | null;
+    };
+
     onChange: any;
-    attribute: any;
     name: string;
     description?: any;
-    error?: string;
-    labelAction?: any;
+    error?: null | string;
     required?: boolean;
-    value?: any;
+    value: string | undefined;
     config: {
         apiKey: string;
         default_center: {

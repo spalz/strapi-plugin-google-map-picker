@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     default: {
         apiKey: null,
-        default_center: {},
+        default_center: null,
         favorites_places: [],
     },
 };

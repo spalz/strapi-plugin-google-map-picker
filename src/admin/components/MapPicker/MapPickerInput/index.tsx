@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Stack, Button, Field, FieldHint, FieldError, FieldLabel } from "@strapi/design-system";
+import {
+    Stack,
+    Button,
+    Field,
+    FieldHint,
+    FieldError,
+    FieldLabel,
+    Box,
+    Status,
+    Link,
+    Typography,
+} from "@strapi/design-system";
 import { GoogleMap, Autocomplete, MarkerF, useLoadScript } from "@react-google-maps/api";
 import { useIntl } from "react-intl";
 
@@ -27,7 +38,7 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
     value,
     config: { apiKey, default_center, favorites_places },
 }) => {
-    const { isLoaded } = useLoadScript({
+    const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: apiKey,
         libraries: LIBRARIES,
     });
@@ -119,7 +130,7 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
         }
     }, []);
 
-    const val_display = (value: string) => {
+    const val_display = (value?: string | null) => {
         if (value) {
             const val = JSON.parse(value);
             return `${val.lat.toFixed(6)}, ${val.lng.toFixed(6)}`;
@@ -130,6 +141,28 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
             });
         }
     };
+
+    // @ts-ignore
+    if (loadError?.target?.id === "script-loader") {
+        return (
+            <>
+                <FieldLabel>{name}</FieldLabel>
+                <Box paddingTop="1">
+                    <Status variant="warning" size="S" showBullet={false}>
+                        <Typography>
+                            <Typography>
+                                Possibly missing: <Typography fontWeight="bold">middlewares</Typography>
+                            </Typography>
+                        </Typography>
+                        <br />
+                        <Link href="https://github.com/spalz/strapi-plugin-google-map-picker" isExternal>
+                            Installation Instructions (GitHub)
+                        </Link>
+                    </Status>
+                </Box>
+            </>
+        );
+    }
 
     if (!isLoaded) {
         return <SLoading style={mapContainerStyle}>Loading...</SLoading>;
@@ -176,7 +209,7 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
 
                         <SGoogleMap>
                             <GoogleMap
-                                id="map"
+                                id={name}
                                 mapContainerStyle={mapContainerStyle}
                                 zoom={10}
                                 center={center}
@@ -225,7 +258,7 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
 
 const SLoading = styled.div`
     display: flex;
-    background-color: #ccc;
+    background-color: ${({ theme }) => theme.colors.neutral300};
     align-items: center;
     justify-content: center;
 `;

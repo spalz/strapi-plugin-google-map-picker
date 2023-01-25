@@ -1,0 +1,14 @@
+.eslintrc
+.gitignore
+.npmignore
+.prettierignore
+.prettierrc
+jest.config.front.js
+jest.config.js
+strapi-admin.js
+strapi-server.js
+tsconfig.json
+tsconfig.tsbuildinfo
+yarn.lock
+src
+assets

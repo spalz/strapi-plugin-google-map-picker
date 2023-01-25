@@ -1,6 +1,6 @@
 {
     "name": "strapi-plugin-google-map-picker",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Strapi maintained Custom Fields",
     "strapi": {
         "name": "google-map-picker",
@@ -42,15 +42,25 @@
         "@strapi/design-system": "^1.5.0",
         "@strapi/helper-plugin": "^4.5.6",
         "@strapi/icons": "^1.5.0",
+        "@strapi/strapi": "^4.5.6",
         "immer": "^9.0.18",
-        "react-redux": "^8.0.5"
+        "react-intl": "^6.2.5",
+        "react-redux": "^8.0.5",
+        "styled-components": "^5.3.6"
     },
     "devDependencies": {
         "@types/node": "^18.11.18",
         "@types/react": "^18.0.27",
         "@types/react-router-dom": "^5.3.3",
         "@types/styled-components": "^5.1.26",
+        "@typescript-eslint/eslint-plugin": "^5.49.0",
+        "@typescript-eslint/parser": "^5.49.0",
         "eslint": "^8.32.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-import-resolver-typescript": "^3.5.3",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.32.1",
         "prettier": "^2.8.3",
         "typescript": "^4.9.4"
     }
