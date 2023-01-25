@@ -3,7 +3,7 @@
 export default {
     default: {
         apiKey: null,
-        default_center: null,
-        favorites_places: null,
+        defaultCenter: null,
+        favoritesPlaces: null,
     },
 };

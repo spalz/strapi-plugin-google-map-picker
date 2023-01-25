@@ -9,8 +9,8 @@ const initialState = {
     isLoading: true,
     config: {
         apiKey: null,
-        default_center: {},
-        favorites_places: [],
+        defaultCenter: null,
+        favoritesPlaces: null,
     },
 };
 const configReducer = (0, immer_1.default)((state = initialState, action) => {

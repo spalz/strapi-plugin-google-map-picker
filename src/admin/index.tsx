@@ -1,8 +1,11 @@
 import { prefixPluginTranslations } from "@strapi/helper-plugin";
+// import { get } from "lodash";
+import { StrapiAdminInstance } from "strapi-typed";
+
 import MapPickerIcon from "./components/MapPicker/MapPickerIcon";
 import { getTrad, pluginId } from "./utils";
 import reducers from "./reducers";
-import { StrapiAdminInstance } from "strapi-typed";
+import { TranslationKey } from "./translations";
 
 export default {
     register(app: StrapiAdminInstance) {
@@ -63,9 +66,9 @@ export default {
         });
         app.addReducers(reducers);
     },
-    async registerTrads({ locales }: any) {
+    async registerTrads({ locales }: { locales: Array<TranslationKey> }) {
         const importedTrads = await Promise.all(
-            locales.map((locale: any) => {
+            locales.map((locale: string) => {
                 return import(`./translations/${locale}.json`)
                     .then(({ default: data }) => {
                         return {

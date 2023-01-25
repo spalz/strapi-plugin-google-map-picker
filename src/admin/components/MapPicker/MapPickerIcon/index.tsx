@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Icon } from "@strapi/design-system";
-import { Flex } from "@strapi/design-system";
+import { Icon } from "@strapi/design-system/Icon";
+import { Flex } from "@strapi/design-system/Flex";
 import { PinMap } from "@strapi/icons";
 
 const IconBox = styled(Flex)`

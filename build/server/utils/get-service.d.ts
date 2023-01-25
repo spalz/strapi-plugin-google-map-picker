@@ -1,2 +1,2 @@
-declare const getService: (name: any) => any;
+declare const getService: (name: string) => any;
 export default getService;

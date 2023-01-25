@@ -4,6 +4,7 @@ declare module "@strapi/design-system/Box";
 declare module "@strapi/design-system/Button";
 declare module "@strapi/design-system/FieldHint";
 declare module "@strapi/design-system/FieldError";
+declare module "@strapi/design-system/FieldLabel";
 declare module "@strapi/design-system/Card";
 declare module "@strapi/design-system/Dialog";
 declare module "@strapi/design-system/Divider";

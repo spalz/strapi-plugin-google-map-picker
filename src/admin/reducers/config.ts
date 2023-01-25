@@ -6,8 +6,8 @@ const initialState = {
     isLoading: true,
     config: {
         apiKey: null,
-        default_center: {},
-        favorites_places: [],
+        defaultCenter: null,
+        favoritesPlaces: null,
     },
 };
 

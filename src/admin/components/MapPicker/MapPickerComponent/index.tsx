@@ -1,6 +1,10 @@
 import React from "react";
 
-import { Box, Link, Status, Typography, FieldLabel } from "@strapi/design-system";
+import { Box } from "@strapi/design-system/Box";
+import { Link } from "@strapi/design-system/Link";
+import { Status } from "@strapi/design-system";
+import { Typography } from "@strapi/design-system/Typography";
+import { FieldLabel } from "@strapi/design-system/Field";
 
 import MapPickerInput from "../MapPickerInput";
 import usePluginConfig from "../../../hooks/use-plugin-config";
@@ -9,9 +13,9 @@ import { MapPickerInputProps } from "../../../../types";
 const MapPickerComponent = (props: MapPickerInputProps) => {
     const { config, isLoading } = usePluginConfig();
 
-    return config && config.apiKey && config.default_center ? (
+    return config && config.apiKey && config.defaultCenter ? (
         <MapPickerInput {...props} config={config} />
-    ) : (!isLoading && !config.apiKey) || (!isLoading && !config.default_center) ? (
+    ) : (!isLoading && !config.apiKey) || (!isLoading && !config.defaultCenter) ? (
         <>
             <FieldLabel>{props.name}</FieldLabel>
             <Box paddingTop="1">
@@ -19,8 +23,8 @@ const MapPickerComponent = (props: MapPickerInputProps) => {
                     <Typography>
                         <Typography>
                             Missing: {!config.apiKey && <Typography fontWeight="bold">apiKey</Typography>}
-                            {!config.apiKey && !config.default_center ? " and " : null}
-                            {!config.default_center && <Typography fontWeight="bold">default_center</Typography>}
+                            {!config.apiKey && !config.defaultCenter ? " and " : null}
+                            {!config.defaultCenter && <Typography fontWeight="bold">defaultCenter</Typography>}
                         </Typography>
                     </Typography>
                     <br />

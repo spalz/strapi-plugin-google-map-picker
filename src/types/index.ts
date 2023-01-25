@@ -5,10 +5,10 @@ export interface MapPickerInputProps extends CustomFieldInputProps {
     description?: any;
     config: {
         apiKey: string;
-        default_center: {
+        defaultCenter: {
             lat: number;
             lng: number;
         };
-        favorites_places: Array<{ title: string; coordinates: { lat: number; lng: number } }>;
+        favoritesPlaces?: Array<{ title: string; coordinates: { lat: number; lng: number } }>;
     };
 }

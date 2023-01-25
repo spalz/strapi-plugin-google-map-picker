@@ -9,9 +9,6 @@ exports.default = ({ strapi }) => {
         name: "place",
         plugin: plugin_id_1.default,
         type: "string",
-        apiKey: strapi.plugin(plugin_id_1.default).config("apiKey"),
-        default_center: strapi.plugin(plugin_id_1.default).config("default_center"),
-        favorites_places: strapi.plugin(plugin_id_1.default).config("favorites_places"),
     });
 };
 //# sourceMappingURL=register.js.map

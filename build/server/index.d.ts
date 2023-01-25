@@ -1,10 +1,12 @@
 declare const _default: {
-    register: ({ strapi }: any) => void;
+    register: ({ strapi }: {
+        strapi: import("@strapi/strapi").Strapi;
+    }) => void;
     config: {
         default: {
             apiKey: null;
-            default_center: null;
-            favorites_places: null;
+            defaultCenter: null;
+            favoritesPlaces: null;
         };
     };
     routes: {
