@@ -28,7 +28,7 @@ const mapContainerStyle = {
 
 const MapPickerInput: React.FC<MapPickerInputProps> = ({
     attribute,
-    description = null,
+    description,
     error = null,
     intlLabel,
     labelAction = null,
@@ -77,7 +77,7 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
                 lat: drag.latLng.lat(),
                 lng: drag.latLng.lng(),
             });
-            onChange({
+            onChange?.({
                 target: {
                     name,
                     value: JSON.stringify({
@@ -110,7 +110,7 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
             const [lat, lng] = val.split(",");
             setLocation({ lat: Number(lat), lng: Number(lng) });
             setCenter({ lat: Number(lat), lng: Number(lng) });
-            onChange({
+            onChange?.({
                 target: {
                     name,
                     value: JSON.stringify({ lat: Number(lat), lng: Number(lng) }),

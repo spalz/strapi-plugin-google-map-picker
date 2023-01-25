@@ -15,7 +15,7 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "rootDir": ".",
-        "outDir": "../dist/",
+        "outDir": "../build/",
         "resolveJsonModule": true
     },
     "references": [

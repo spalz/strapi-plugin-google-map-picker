@@ -2,10 +2,10 @@ import { prefixPluginTranslations } from "@strapi/helper-plugin";
 import MapPickerIcon from "./components/MapPicker/MapPickerIcon";
 import { getTrad, pluginId } from "./utils";
 import reducers from "./reducers";
+import { StrapiAdminInstance } from "strapi-typed";
 
 export default {
-    register(app: any) {
-        app.addReducers(reducers);
+    register(app: StrapiAdminInstance) {
         app.customFields.register({
             name: "place",
             pluginId: pluginId,
@@ -23,6 +23,7 @@ export default {
                 Input: async () => import("./components/MapPicker/MapPickerComponent"),
             },
             options: {
+                base: [],
                 advanced: [
                     {
                         intlLabel: {
@@ -57,8 +58,10 @@ export default {
                         ],
                     },
                 ],
+                validator: () => ({}),
             },
         });
+        app.addReducers(reducers);
     },
     async registerTrads({ locales }: any) {
         const importedTrads = await Promise.all(
