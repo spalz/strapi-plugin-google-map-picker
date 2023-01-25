@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useIntl } from "react-intl";
 import styled from "styled-components";
 import { Stack } from "@strapi/design-system/Stack";
 import { Button } from "@strapi/design-system/Button";
@@ -10,7 +11,6 @@ import { Field, FieldError, FieldHint, FieldLabel } from "@strapi/design-system/
 import { GoogleMap, Autocomplete, MarkerF, useLoadScript } from "@react-google-maps/api";
 
 import { getTrad } from "../../../utils";
-import getMessage from "../../../utils/getMessage";
 import { MapPickerInputProps } from "../../../../types";
 
 const LIBRARIES: Array<"places" | "geometry"> = ["places", "geometry"];
@@ -37,6 +37,8 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
         googleMapsApiKey: apiKey,
         libraries: LIBRARIES,
     });
+
+    const { formatMessage } = useIntl();
 
     const [searchResult, setSearchResult] = useState<google.maps.places.Autocomplete>();
     const [marker, setMarker] = useState(false);
@@ -129,7 +131,7 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
             const val = JSON.parse(value);
             return `${val.lat.toFixed(6)}, ${val.lng.toFixed(6)}`;
         } else {
-            return getMessage({
+            return formatMessage({
                 id: getTrad("google-map-picker.not-selected"),
                 defaultMessage: "Not selected",
             });
@@ -164,11 +166,11 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
     }
 
     return (
-        <Field name={name} id={name} error={error} hint={description && getMessage(description)} required={required}>
+        <Field name={name} id={name} error={error} hint={description && formatMessage(description)} required={required}>
             <Stack spacing={1}>
                 <SFieldLabel>
                     <FieldLabel action={labelAction}>
-                        {getMessage(intlLabel)}
+                        {formatMessage(intlLabel)}
                         <SCoordinates onClick={() => setField(true)} className={`${field ? "active" : ""}`}>
                             {valDisplay(value)}
                         </SCoordinates>
@@ -224,7 +226,7 @@ const MapPickerInput: React.FC<MapPickerInputProps> = ({
                                 >
                                     <SSearchField
                                         type="text"
-                                        placeholder={getMessage({
+                                        placeholder={formatMessage({
                                             id: getTrad("google-map-picker.search"),
                                             defaultMessage: "Search",
                                         })}

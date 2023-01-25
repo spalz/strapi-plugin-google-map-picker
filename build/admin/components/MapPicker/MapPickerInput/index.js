@@ -27,6 +27,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
+const react_intl_1 = require("react-intl");
 const styled_components_1 = __importDefault(require("styled-components"));
 const Stack_1 = require("@strapi/design-system/Stack");
 const Button_1 = require("@strapi/design-system/Button");
@@ -37,7 +38,6 @@ const Typography_1 = require("@strapi/design-system/Typography");
 const Field_1 = require("@strapi/design-system/Field");
 const api_1 = require("@react-google-maps/api");
 const utils_1 = require("../../../utils");
-const getMessage_1 = __importDefault(require("../../../utils/getMessage"));
 const LIBRARIES = ["places", "geometry"];
 const AUTOCOMPLETE_FIELDS = ["geometry"];
 const mapContainerStyle = {
@@ -49,6 +49,7 @@ const MapPickerInput = ({ attribute, description, error = null, intlLabel, label
         googleMapsApiKey: apiKey,
         libraries: LIBRARIES,
     });
+    const { formatMessage } = (0, react_intl_1.useIntl)();
     const [searchResult, setSearchResult] = (0, react_1.useState)();
     const [marker, setMarker] = (0, react_1.useState)(false);
     const [location, setLocation] = (0, react_1.useState)(defaultCenter);
@@ -133,7 +134,7 @@ const MapPickerInput = ({ attribute, description, error = null, intlLabel, label
             return `${val.lat.toFixed(6)}, ${val.lng.toFixed(6)}`;
         }
         else {
-            return (0, getMessage_1.default)({
+            return formatMessage({
                 id: (0, utils_1.getTrad)("google-map-picker.not-selected"),
                 defaultMessage: "Not selected",
             });
@@ -154,11 +155,11 @@ const MapPickerInput = ({ attribute, description, error = null, intlLabel, label
     if (!isLoaded) {
         return react_1.default.createElement(SLoading, { style: mapContainerStyle }, "Loading...");
     }
-    return (react_1.default.createElement(Field_1.Field, { name: name, id: name, error: error, hint: description && (0, getMessage_1.default)(description), required: required },
+    return (react_1.default.createElement(Field_1.Field, { name: name, id: name, error: error, hint: description && formatMessage(description), required: required },
         react_1.default.createElement(Stack_1.Stack, { spacing: 1 },
             react_1.default.createElement(SFieldLabel, null,
                 react_1.default.createElement(Field_1.FieldLabel, { action: labelAction },
-                    (0, getMessage_1.default)(intlLabel),
+                    formatMessage(intlLabel),
                     react_1.default.createElement(SCoordinates, { onClick: () => setField(true), className: `${field ? "active" : ""}` }, valDisplay(value))),
                 field && (react_1.default.createElement(SFieldInput, { type: "text", placeholder: "lat, lng", onChange: (val) => onChangeField(val), className: `${fieldError ? "error" : ""}` }))),
             isLoaded ? (react_1.default.createElement("div", null,
@@ -172,7 +173,7 @@ const MapPickerInput = ({ attribute, description, error = null, intlLabel, label
                             maxZoom: 18,
                         } },
                         react_1.default.createElement(api_1.Autocomplete, { onLoad: (autocomplete) => onLoadAutocomplete(autocomplete), onPlaceChanged: () => onPlaceChanged(), fields: AUTOCOMPLETE_FIELDS },
-                            react_1.default.createElement(SSearchField, { type: "text", placeholder: (0, getMessage_1.default)({
+                            react_1.default.createElement(SSearchField, { type: "text", placeholder: formatMessage({
                                     id: (0, utils_1.getTrad)("google-map-picker.search"),
                                     defaultMessage: "Search",
                                 }) })),
